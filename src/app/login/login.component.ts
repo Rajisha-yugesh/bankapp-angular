@@ -15,28 +15,17 @@ export class LoginComponent implements OnInit {
 
 
   }
-  acno = "";
-  pwd = "";
+  acno="";//sync whatever we type in view,we will get that
+  pwd="";
 
   constructor() { }
 
   ngOnInit(): void {
   }
 
-  acnoChange(event) {
-
-
-
-    this.acno = event.target.value;
-
-  }
-  pwdChange(event) {
-
-
-    this.pwd = event.target.value;
-  }
+ 
   login() {
-    var acno = this.acno;
+    var acno = parseInt(this.acno);//convert string to number
     var password = this.pwd;
     alert(acno + "," + password)
     var details = this.accountDetails;
