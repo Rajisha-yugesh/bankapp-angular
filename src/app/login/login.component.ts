@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import {DataService} from '../services/data.service'//../ means ,now we are in login page , one step back ,next folder path no need of extension
 
 @Component({
   selector: 'app-login',
@@ -7,19 +8,12 @@ import { Router } from '@angular/router';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  accountDetails = {
-    1001: { name: "user1", acno: 1001, pin: 4387, password: "userone", balance: 3000 },
-    1002: { name: "user2", acno: 1002, pin: 4388, password: "usertwo", balance: 4000 },
-    1003: { name: "user3", acno: 1003, pin: 4287, password: "userthree", balance: 2000 },
-    1004: { name: "user4", acno: 1004, pin: 1388, password: "userfour", balance: 1000 },
-    1005: { name: "user5", acno: 1005, pin: 1318, password: "userfive", balance: 1500 }
-
-
-  }
+  
   acno="";//sync whatever we type in view,we will get that
   pwd="";
 
-  constructor(private router:Router) { }
+  constructor(private router:Router,
+    private dataservice : DataService) { }
 
   ngOnInit(): void {
   }
@@ -29,7 +23,7 @@ export class LoginComponent implements OnInit {
     var acno = parseInt(this.acno);//convert string to number
     var password = this.pwd;
     alert(acno + "," + password)
-    var details = this.accountDetails;
+    var details = this.dataservice.accountDetails;
 
     if (acno in details) {
       let pwd = details[acno].password//var==let

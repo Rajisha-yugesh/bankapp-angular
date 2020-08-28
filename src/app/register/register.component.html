@@ -1,0 +1,25 @@
+<form (ngSubmit)="register()">
+    
+    <strong><span>WELCOME TO YES BANK</span></strong>
+    <br>
+    <br>
+    <br>
+    <div class="form-group">
+
+        <label for="name">Name</label>
+        <input [(ngModel)]="name" type="text" name="name" class="form-control" id="name">
+      </div>
+    <div class="form-group">
+      <label for="acno">Account NO:</label>
+      <input [(ngModel)]="acno" type="text" name="acno" class="form-control" id="acno" aria-describedby="acno">
+      {{acno}}<!--  //string interpolation =>if we want to show the data in ts file to html (view in the browser)ie, when we ype acno that will appear on browser-->
+    </div>
+    <div class="form-group">
+      <label for="pwd">Password</label>
+      <input [(ngModel)]="pwd" type="password" name="paswd" class="form-control" id="pwd">
+    </div>
+    
+    <button type="submit" class="btn btn-primary" >Register</button><br>
+    <a routerLink="">Back to login</a>
+  </form>
+
