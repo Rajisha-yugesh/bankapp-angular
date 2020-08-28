@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -18,7 +19,7 @@ export class LoginComponent implements OnInit {
   acno="";//sync whatever we type in view,we will get that
   pwd="";
 
-  constructor() { }
+  constructor(private router:Router) { }
 
   ngOnInit(): void {
   }
@@ -34,7 +35,8 @@ export class LoginComponent implements OnInit {
       let pwd = details[acno].password//var==let
       if (pwd == password) {
         // alert("successful login")
-        window.location.href = "user.html"
+        // window.location.href = "user.html"
+        this.router.navigateByUrl("dashboard")
       }
       else {
         alert("password incorrect")
