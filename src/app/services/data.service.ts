@@ -15,4 +15,20 @@ export class DataService {
   }
 
   constructor() { }
+
+  register(name,acno,pwd,pin){
+    if(acno in this.accountDetails){
+      alert("account number already exists, Please Login");
+      return false;//i will move o register.ts register();
+    }
+    this.accountDetails[acno]={
+      name,
+      acno,
+      pwd,
+      pin,
+      balance:0
+    }
+    console.log(this.accountDetails)
+   return true;
+  }
 }

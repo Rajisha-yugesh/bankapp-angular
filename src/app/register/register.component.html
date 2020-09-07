@@ -1,4 +1,4 @@
-<form (ngSubmit)="register()">
+<form [formGroup]="registerForm" (ngSubmit)="register()">
     
     <strong><span>WELCOME TO YES BANK</span></strong>
     <br>
@@ -7,17 +7,25 @@
     <div class="form-group">
 
         <label for="name">Name</label>
-        <input [(ngModel)]="name" type="text" name="name" class="form-control" id="name">
+        <input formControlName="name"  type="text" name="name" class="form-control" id="name">
+        <div class="error" *ngIf="getError('name')">name is invalid</div>
       </div>
     <div class="form-group">
       <label for="acno">Account NO:</label>
-      <input [(ngModel)]="acno" type="text" name="acno" class="form-control" id="acno" aria-describedby="acno">
-      {{acno}}<!--  //string interpolation =>if we want to show the data in ts file to html (view in the browser)ie, when we ype acno that will appear on browser-->
+      <input  formControlName="acno" type="text" name="acno" class="form-control" id="acno" aria-describedby="acno">
+      <div class="error" *ngIf="getError('acno')">Account number is invalid</div>
+      <!-- {{acno}} //string interpolation =>if we want to show the data in ts file to html (view in the browser)ie, when we ype acno that will appear on browser -->
     </div>
     <div class="form-group">
       <label for="pwd">Password</label>
-      <input [(ngModel)]="pwd" type="password" name="paswd" class="form-control" id="pwd">
+      <input  formControlName="pwd"type="password" name="paswd" class="form-control" id="pwd">
+      <div class="error" *ngIf="getError('pwd')">password is invalid</div>
     </div>
+    <div class="form-group">
+        <label for="pin">pin</label>
+        <input  formControlName="pin" type="text" name="pin" class="form-control" id="pin">
+        <div class="error" *ngIf="getError('pin')">pin is invalid</div>
+      </div>
     
     <button type="submit" class="btn btn-primary" >Register</button><br>
     <a routerLink="">Back to login</a>
