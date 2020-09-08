@@ -39,19 +39,25 @@
         <div class="col-4"></div>
         <div class="col-4">
   
-    <form>
+    <form [formGroup]="loginForm" >
         <strong><span>WELCOME TO YES BANK</span></strong>
         <br>
         <br>
         <br>
         <div class="form-group">
           <label for="acno">Account NO:</label>
-          <input [(ngModel)]="acno" type="text" name="acno" class="form-control" id="acno" aria-describedby="acno">
-          {{acno}}<!--  //string interpolation =>if we want to show the data in ts file to html (view in the browser)ie, when we ype acno that will appear on browser-->
-        </div>
+          <input formControlName="acno" type="text" name="acno" class="form-control" id="acno" aria-describedby="acno">
+          <!-- {{acno}} //string interpolation =>if we want to show the data in ts file to html (view in the browser)ie, when we ype acno that will appear on browser -->
+          <div  *ngIf="getError('acno')" class="error">Account number is inavalid
+
+          </div>
+       </div>
         <div class="form-group">
           <label for="pwd">Password</label>
-          <input [(ngModel)]="pwd" type="password" name="paswd" class="form-control" id="pwd">
+          <input formControlName="pwd" type="password" name="paswd" class="form-control" id="pwd">
+          <div  *ngIf="getError('pwd')" class="error">password is inavalid
+
+          </div>
         </div>
         
         <button type="button" class="btn btn-primary" (click)="login()">Login</button>

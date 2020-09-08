@@ -33,10 +33,10 @@
 
 
 <div class="jumbotron">
-    <h2>WELCOME USER</h2>
+    <h2>WELCOME {{dataService.currentUser.name}}</h2>
     <h6>How may we help you today?</h6>
-    <input type="button" class="btn btn-primary" value="Deposit cash" onclick="bank.depositpage()">
-    <input type="button" class="btn btn-primary" value="Withdraw cash" onclick="bank.withdrawpage()">
+    <input type="button" class="btn btn-primary" value="Deposit cash" (click)="depositpage()">
+    <input type="button" class="btn btn-primary" value="Withdraw cash" (click)="withdrawpage()">
 
 </div>
 

@@ -27,7 +27,7 @@ export class RegisterComponent implements OnInit {
   }
 
   getError(field){
-    return this.registerForm.get(field).errors
+    return (this.registerForm.get(field).touched||this.registerForm.get(field).dirty)&&this.registerForm.get(field).errors
     
 
   }
@@ -37,7 +37,7 @@ export class RegisterComponent implements OnInit {
     // }
 
     if(this.registerForm.valid){
-    const result=this.dataservice.register(this.registerForm.value.name,this.registerForm.value.acno,this.registerForm.value.pwd,this.registerForm.value.pin);
+    const result=this.dataservice.register(this.registerForm.value.name,this.registerForm.value.acno,this.registerForm.value.pin,this.registerForm.value.pwd);
     
     if(result){
       alert("succesfully created account")

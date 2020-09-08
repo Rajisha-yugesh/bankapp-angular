@@ -13,6 +13,7 @@ export class DataService {
 
 
   }
+  currentUser;
 
   constructor() { }
 
@@ -30,5 +31,16 @@ export class DataService {
     }
     console.log(this.accountDetails)
    return true;
+  }
+  login(acno1 ,paswrd){
+    var acno=parseInt(acno1);
+    var data=this.accountDetails;
+    if(acno in data){
+      var pwd = data[acno].password
+      if(pwd ==paswrd){
+        this.currentUser = data[acno];
+        return true;
+      }
+    }
   }
 }
