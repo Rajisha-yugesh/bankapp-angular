@@ -1,0 +1,29 @@
+<div class="container">
+    <div class="jumbotron">
+        Transaction History
+        <div class="row">
+            <div class="col">
+                <table>
+                    <thead>
+                        <tr>
+                            <td>amount</td>
+                            <td>type</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let transaction of transactions">
+
+                            <td>{{transaction.amount}}</td>
+                            <td>{{transaction.typeOfTransaction}}</td>
+                            <td (click)="delete">delete</td>
+                        </tr>
+                    </tbody>
+
+
+
+                </table>
+            </div>
+        </div>
+
+    </div>
+</div>

@@ -1,0 +1,37 @@
+
+ <h1>Welcome {{name}}</h1>
+ <a routerLink="/transaction-history">tranaction-history</a>
+ <div class="row">
+     <div class="col">
+         ACCOUNT DETAILS
+         <form [formGroup]="depositForm">
+         <table>
+             <tr>
+                 <td>accno</td>
+                 <td><input type="text" formControlName="acno" id="acno"></td>
+                 <div  *ngIf="getError('acno')" class="error">account number is inavalid
+
+                </div>
+             </tr>
+             <tr>
+                 <td>pin</td>
+                 <td><input type="text" formControlName="pin" id="pin"></td>
+                 <div  *ngIf="getError('pin')" class="error">pin number is invalid
+
+                </div>
+             </tr>
+             <tr>
+                 <td>amount</td>
+                 <td><input type="text"  formControlName="amount" id="amount"></td>
+                 <div  *ngIf="getError('amount')" class="error"> minimum amount is 100
+
+                </div>
+             </tr>
+             <tr>
+             
+                 <td><input type="button" value="proceed" (click)="deposit()"></td>
+             </tr>
+
+         </table>
+        </form>
+     </div>

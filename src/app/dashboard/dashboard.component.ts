@@ -10,20 +10,21 @@ import { DataService } from '../services/data.service';
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
-  router: any;
+  ;
 
-  constructor(public dataService:DataService) { }
+  constructor(public dataService:DataService,
+    private router: Router) { }
 
   ngOnInit(): void {
   }
 
   depositpage(){
-    this.router.navigateByUrl("login")
+    this.router.navigateByUrl("deposit")
 
 
   }
  withdrawpage(){
-  this.router.navigateByUrl("dashboard")
+  this.router.navigateByUrl("withdraw")
 
   }
 

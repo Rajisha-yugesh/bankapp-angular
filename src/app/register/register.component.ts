@@ -37,12 +37,18 @@ export class RegisterComponent implements OnInit {
     // }
 
     if(this.registerForm.valid){
-    const result=this.dataservice.register(this.registerForm.value.name,this.registerForm.value.acno,this.registerForm.value.pin,this.registerForm.value.pwd);
-    
-    if(result){
+   this.dataservice.register(this.registerForm.value.name,this.registerForm.value.acno,this.registerForm.value.pin,this.registerForm.value.pwd)
+   .subscribe(data=>{
+    if(data){
       alert("succesfully created account")
       this.router.navigateByUrl("");
     }
+  },(data)=>{
+    alert(data.error.message)
+  })
+
+   
+    
   }
   else{
     alert("form is invalid")

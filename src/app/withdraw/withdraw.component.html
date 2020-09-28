@@ -1,0 +1,37 @@
+
+
+ <h1>Welcome user</h1>
+ <div class="row">
+     <div class="col">
+         ACCOUNT DETAILS
+         <form [formGroup]="withdrawForm">
+         <table>
+             <tr>
+                 <td>accno</td>
+                 <td><input type="text" formControlName="acno"  name="acno" id="acno"></td>
+                 <div  *ngIf="getError('acno')" class="error">account number is inavalid
+
+                </div>
+             </tr>
+             <tr>
+                 <td>pin</td>
+                 <td><input type="text" formControlName="pin" name="pin" id="pin"></td>
+                 <div  *ngIf="getError('pin')" class="error">pin number is invalid
+
+                </div>
+             </tr>
+             <tr>
+                 <td>amount</td>
+                 <td><input type="text"  formControlName="amount" name="amount" id="amount"></td>
+                 <div  *ngIf="getError('amount')" class="error"> minimum amount is 100
+
+                </div>
+             </tr>
+             <tr>
+             
+                 <td><input type="button" value="proceed" (click)="withdraw()"></td>
+             </tr>
+
+         </table>
+        </form>
+     </div>

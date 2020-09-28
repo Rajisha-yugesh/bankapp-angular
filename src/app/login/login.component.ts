@@ -12,7 +12,7 @@ export class LoginComponent implements OnInit {
 
   loginForm = this.fb.group({
 
-    acno: ['', [Validators.required, Validators.minLength(4),Validators.pattern("^[0-9]*$")]],
+    acno: ['', [Validators.required, Validators.minLength(4), Validators.pattern("^[0-9]*$")]],
     pwd: ['', [Validators.required]],
 
   })
@@ -29,22 +29,30 @@ export class LoginComponent implements OnInit {
   }
   login() {
     if (this.loginForm.valid) {
-      const result = this.dataservice.login(this.loginForm.value.acno,this.loginForm.value.pwd)
-      if(result){
+      this.dataservice.login(this.loginForm.value.acno, this.loginForm.value.pwd)
+      .subscribe((data:any)=>{
+        if(data){
+          localStorage.setItem("name",data.name)
         alert("login successful")
         this.router.navigateByUrl("dashboard")
+        } else {
+          alert("invalid credentials")
+        }
 
-      }
-      else{
-        alert("invalid credentials")
-      }
+      },(data)=>{
+        alert(data.error.message)
+      })
+  
+
+      
+     
     }
-    else{
+    else {
       alert("form is invalid")
 
     }
-    }
-      
+  }
+
   //     var acno = parseInt(this.loginForm.value.acno);//convert string to number
   //     var password = this.loginForm.value.pwd;
   //     alert(acno + "," + password)
