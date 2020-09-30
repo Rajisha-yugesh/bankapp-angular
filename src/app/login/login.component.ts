@@ -31,6 +31,7 @@ export class LoginComponent implements OnInit {
     if (this.loginForm.valid) {
       this.dataservice.login(this.loginForm.value.acno, this.loginForm.value.pwd)
       .subscribe((data:any)=>{
+        console.log(data)
         if(data){
           localStorage.setItem("name",data.name)
         alert("login successful")

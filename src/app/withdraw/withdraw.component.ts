@@ -26,7 +26,7 @@ export class WithdrawComponent implements OnInit {
   }
   withdraw() {
     if (this.withdrawForm.valid) {
-      this.dataservice.withdraw(this.withdrawForm.value.acno, this.withdrawForm.value.pin, this.withdrawForm.value.amount)
+      this.dataservice.withdraw(this.withdrawForm.value.acno, this.withdrawForm.value.pin, this.withdrawForm.value.amount1)
       .subscribe((result:any)=>{
         alert(result.message);
         alert(result.balance)

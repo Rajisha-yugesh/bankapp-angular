@@ -46,7 +46,7 @@ export class DataService {
   }
 
   deleteTransactions(id){
-    return this.http.delete("http://localhost:3000/transactions",options)
+    return this.http.delete("http://localhost:3000/transactions"+id,options)
   }
 
   register(name, acno, pwd, pin) {

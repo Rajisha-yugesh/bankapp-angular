@@ -14,6 +14,7 @@ import { DepositComponent } from './deposit/deposit.component';
 import { WithdrawComponent } from './withdraw/withdraw.component';
 import { TransactionHistoryComponent } from './transaction-history/transaction-history.component';
 import { from } from 'rxjs';
+import { DeleteTransactionsComponent } from './delete-transactions/delete-transactions.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { from } from 'rxjs';
     RegisterComponent,
     DepositComponent,
     WithdrawComponent,
-    TransactionHistoryComponent
+    TransactionHistoryComponent,
+    DeleteTransactionsComponent
   ],
   imports: [
     BrowserModule,
